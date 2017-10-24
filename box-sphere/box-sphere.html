@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Circular Attraction Multiple Stars</title>
+	<script type="text/javascript" src="js/p5.min.js"></script>
+	<script type="text/javascript" src="js/box.js"></script>
+
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		var R;
+		var spheres = [];
+		var degreeZ = 30;
+		var degreeY = 30;
+		var boxSize = 5;
+		function setup() {
+			createCanvas(500,500, WEBGL);
+			R = 100;
+			for (var i = 0; i < 12; i++){
+				spheres[i] = new Box(degreeZ);
+			}
+		}
+
+		function draw() {
+			background(100);
+			rotateY(frameCount*0.01);
+			for (var i = 0; i < 360/degreeZ; i++){
+				for (var angle = 0; angle < 360; angle += degreeY){
+					var x = R * cos(radians(angle));
+					var y = R * sin(radians(angle));
+					// draw a 2D circle of boxes
+					spheres[i].drawBox(x,y,0,boxSize);
+				}
+				// rotate 2D circle of boxes around Y axis to turn into a sphere of boxes
+				spheres[i].drawSphere();
+			}
+
+		}
+	</script>
+
+</body>
+</html>

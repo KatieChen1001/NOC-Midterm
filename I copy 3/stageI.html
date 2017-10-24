@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Circular Attraction Multiple Stars</title>
+	<script type="text/javascript" src="js/p5.min.js"></script>
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		
+	var x, y, R,angle;
+		function setup() {
+			createCanvas(1000, 800);
+			translate(width/2, height/2);
+			R = 100;
+			angle = 0;
+			background(0;)
+		
+		}
+
+		function draw() {
+			x = R * cos(radians(angle));
+			y = R * sin(radians(angle));
+			noStroke();
+			fill(255);
+			ellipse(x,y,5,5);
+
+			
+		}
+	</script>
+
+</body>
+</html>
